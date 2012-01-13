@@ -17,11 +17,12 @@ class SalesController extends AppController {
 	}
 
 	function add() {
+		$this->layout = 'tianjia';
 		if (!empty($this->data)) {
 			$this->Sale->create();
 			if ($this->Sale->save($this->data)) {
 				$this->Session->setFlash(__('The sale has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'chakan'));
 			} else {
 				$this->Session->setFlash(__('The sale could not be saved. Please, try again.', true));
 			}
@@ -69,13 +70,11 @@ class SalesController extends AppController {
 	//|||
 	//---
 	function chakan($userID = null) {
+		$this->layout = 'tianjia';
 		if(!$userID) {
 			$this->set('orders',$this->Sale->find('all'));
 		} else {
 			$this->set('orders',$this->Sale->findAllByUserId($userID));
 		}
-	}
-	
-	function xindingdan($setp = null) {
 	}
 }
