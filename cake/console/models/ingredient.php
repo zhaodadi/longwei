@@ -1,6 +1,7 @@
 <?php
 class Ingredient extends AppModel {
 	var $name = 'Ingredient';
+	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(
@@ -22,9 +23,9 @@ class Ingredient extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'modifier' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -32,23 +33,6 @@ class Ingredient extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-	var $hasMany = array(
-		'Receipt' => array(
-			'className' => 'Receipt',
-			'foreignKey' => 'ingredient_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -61,5 +45,4 @@ class Ingredient extends AppModel {
 			'order' => ''
 		)
 	);
-
 }

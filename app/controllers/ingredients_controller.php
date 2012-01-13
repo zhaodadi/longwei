@@ -21,7 +21,7 @@ class IngredientsController extends AppController {
 			$this->Ingredient->create();
 			if ($this->Ingredient->save($this->data)) {
 				$this->Session->setFlash(__('The ingredient has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'pinzhong'));
 			} else {
 				$this->Session->setFlash(__('The ingredient could not be saved. Please, try again.', true));
 			}
@@ -57,5 +57,26 @@ class IngredientsController extends AppController {
 		}
 		$this->Session->setFlash(__('Ingredient was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	//---
+	//|||
+	//---
+	function pinzhong($userID = null) {
+		$this->layout = 'tianjia';
+		if(!$userID) {
+			$this->set('ingredients',$this->Ingredient->find('all'));
+		} else {
+			$this->set('ingredients',$this->Ingredient->findAllByUserId($userID));
+		}
+	}
+	
+	function chakan($userID = null) {
+		$this->layout = 'tianjia';
+		if(!$userID) {
+			$this->set('ingredients',$this->Ingredient->find('all'));
+		} else {
+			$this->set('ingredients',$this->Ingredient->findAllByUserId($userID));
+		}
 	}
 }

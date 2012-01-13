@@ -17,6 +17,7 @@ class IngredientsStocksController extends AppController {
 	}
 
 	function add() {
+		$this->layout = 'tianjia';
 		if (!empty($this->data)) {
 			$this->IngredientsStock->create();
 			if ($this->IngredientsStock->save($this->data)) {

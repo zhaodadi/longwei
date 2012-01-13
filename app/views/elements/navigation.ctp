@@ -38,7 +38,11 @@
 <?php $links = array("home" => array("home" => array( 'text'=>'首页', 'controller' => 'posts', 'action' => 'view')),
 	                 "sales" => array("sales" => array( 'text'=>'销售', 'controller' => 'sales', 'action' => 'chakan'), 
 				                    "chakan" => array( 'text'=>'查看订单', 'controller' => 'sales', 'action' => 'chakan'),
-				                    "add" => array( 'text'=>'提交订单', 'controller' => 'sales', 'action' => 'add'))
+				                    "add" => array( 'text'=>'提交订单', 'controller' => 'sales', 'action' => 'add')),
+	                 "ingredients" => array("ingredients" => array( 'text'=>'供应', 'controller' => 'ingredients', 'action' => 'chakan'), 
+				                    		"chakan" => array( 'text'=>'原料库存', 'controller' => 'ingredients', 'action' => 'chakan'),
+				                    		"pinzhong" => array( 'text'=>'原料品种', 'controller' => 'ingredients', 'action' => 'pinzhong'),
+				                    		"add" => array( 'text'=>'增加库存', 'controller' => 'ingredients_stocks', 'action' => 'add'))
 					);
 					
 	  $thenav = "";
