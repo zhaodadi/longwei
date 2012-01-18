@@ -18,38 +18,62 @@
 			<div id="table-content">
     
 <table id="product-table" width="100%" cellspacing="0" cellpadding="0" border="0">
+<thead>
 <tr>
 	<th class="table-header-check"><a id="toggle-all" ></a> </th>
-	<th class="table-header-repeat line-left minwidth-1"><a href="">编号</a></th>
-	<th class="table-header-repeat line-left minwidth-1"><a href="">产品名称</a></th>
-	<th class="table-header-repeat line-left"><a href="">数量</a></th>
-	<th class="table-header-repeat line-left"><a href="">单位</a></th>
-	<th class="table-header-repeat line-left"><a href="">要货地</a></th>
-	<th class="table-header-repeat line-left"><a href="">要货日期</a></th>
-	<th class="table-header-repeat line-left"><a href="">添加日期</a></th>
-	<th class="table-header-repeat line-left"><a href="">修改日期</a></th>
-	<th class="table-header-repeat line-left"><a href="">业务员</a></th>
-	<th class="table-header-options line-left"><a href="">操作</a></th>
+	<th class="table-header-repeat line-left minwidth-1">编号</th>
+	<th class="table-header-repeat line-left minwidth-1">供货单位</th>
+	<th class="table-header-repeat line-left minwidth-1">产品名称</th>
+	<th class="table-header-repeat line-left minwidth-1">规格</th>
+	<th class="table-header-repeat line-left minwidth-1">单位</th>
+	<th class="table-header-repeat line-left minwidth-1">库存量</th>
+	<th class="table-header-repeat line-left minwidth-1">即将消耗</th>
+	<th class="table-header-repeat line-left">差量</th>
+	<th class="table-header-repeat line-left minwidth-1">上月价格</th>
+	<th class="table-header-repeat line-left minwidth-1">本月价格</th>
+	<th class="table-header-repeat line-left">添加日期</th>
+	<th class="table-header-repeat line-left">修改日期</th>
+	<th class="table-header-repeat line-left minwidth-1">修改人</th>
+	<th class="table-header-repeat line-left minwidth-1">操作</th>
 </tr>
-
-<?php foreach ($orders as $order): ?>
+</thead>
+<tbody>
+<?php foreach ($ingredients as $ingredient): ?>
 <tr>
 	<td><input  type="checkbox"/></td>
-	<td><?php echo $order['Sale']['id']; ?></td>
-	<td><?php echo $order['Product']['name']; ?></td>
-	<td><?php echo $order['Sale']['amount']; ?></td>
-	<td><?php echo $order['Sale']['unit']; ?></td>
-	<td><?php echo $order['Sale']['demand_location']; ?></td>
-	<td><?php echo $order['Sale']['demand_date']; ?></td>
-	<td><?php echo date("Y-m-d H:i", strtotime($order['Sale']['created'])); ?></td>
-	<td><?php echo date("Y-m-d H:i", strtotime($order['Sale']['modified'])); ?></td>
-	<td><?php echo $order['User']['name']; ?></td>
+	<td><?php echo $ingredient['Ingredient']['id']; ?></td>
+	<td><?php echo $ingredients_prices[1]['IngredientsPrice']['supplier'];//echo $ingredient['IngredientsPrice']['supplier']; ?></td>
+	<td><?php echo $ingredient['Ingredient']['name']; ?></td>
+	<td><?php echo $ingredient['Ingredient']['spec']; ?></td>
+	<td><?php echo $ingredient['Ingredient']['unit']; ?></td>
+	<td><?php echo $ingredient['IngredientsStock']['stock']; ?></td>
+	<td><?php echo $ingredient['IngredientsStock']['consume']; ?></td>
+	<td><?php echo $ingredient['IngredientsStock']['stock'] - $ingredient['IngredientsStock']['consume']; ?></td>
+    <?php
+		$count = 0; 
+		foreach($ingredients_prices as $ingredients_price):
+			  if($ingredients_price['IngredientsPrice']['ingredient_id'] == $ingredient['Ingredient']['id']) {
+				  if($ingredients_price['IngredientsPrice']['price']) {
+		              echo "<td>".$ingredients_price['IngredientsPrice']['price']."</td>";
+					  $count++;
+			  	  }
+			  }
+		endforeach;
+		if($count == 0)
+			echo "<td>无数据</td><td>无数据</td>";
+		else if($count == 1)
+			echo "<td>无数据</td>";
+	?>
+	<td><?php echo date("Y-m-d H:i", strtotime($ingredient['Ingredient']['created'])); ?></td>
+	<td><?php echo date("Y-m-d H:i", strtotime($ingredient['Ingredient']['modified'])); ?></td>
+	<td><?php echo $ingredient['User']['name']; ?></td>
 	<td class="options-width">
 		<a href="" title="编辑" class="icon-1 info-tooltip"></a>
 		<a href="" title="删除" class="icon-2 info-tooltip"></a>
 	</td>
 </tr>
 <?php endforeach; ?>
+</tbody>
  
 </table>
 		 </div>
@@ -67,28 +91,7 @@
 			</div>
 			<!-- end actions-box........... -->
          
-        
-<!--  start paging..................................................... -->
-			<table border="0" cellpadding="0" cellspacing="0" id="paging-table">
-			<tr>
-			<td>
-				<a href="" class="page-far-left"></a>
-				<a href="" class="page-left"></a>
-				<div id="page-info">Page <strong>1</strong> / 15</div>
-				<a href="" class="page-right"></a>
-				<a href="" class="page-far-right"></a>
-			</td>
-			<td>
-			<select  class="styledselect_pages">
-				<option value="">Number of rows</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-			</select>
-			</td>
-			</tr>
-			</table>
-			<!--  end paging................ -->
+  
 			
 			<div class="clear"></div>
 		</div>

@@ -20,26 +20,25 @@
 	<td><!-- start id-form -->
         
     	<?php echo $this->Form->create('IngredientsStock'); ?>
-		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
+		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">  
 		<tr>
-			<th valign="top">原料名称:</th>
+			<th valign="top">原料名称</th>
 			<td><?php echo $this->Form->input('ingredient_id', array( 'label' => false,'div' => false, 'class' => 'styledselect_form_1')); ?></td>
 			<td></td>
 		</tr>
 		<tr>
-			<th valign="top">增加量:</th>
-			<td><?php echo $this->Form->input('stock', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<th valign="top">供货单位</th>
+			<td><?php echo $this->Form->input('IngredientsPrice.0.supplier', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
 			<td></td>
 		</tr>
 		<tr>
-			<th valign="top">单位:</th>
-			<td><?php echo $this->Form->input('unit', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?>
-		<!--<select  class="styledselect_form_1">
-			<option value="">吨</option>
-			<option value="">千克</option>
-			<option value="">克</option>
-		</select>-->
-			</td>
+			<th valign="top">单价</th>
+			<td><?php echo $this->Form->input('IngredientsPrice.0.price', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th valign="top">增加量</th>
+			<td><?php echo $this->Form->input('stock', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
 			<td></td>
 		</tr>
         

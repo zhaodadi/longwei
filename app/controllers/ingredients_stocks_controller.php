@@ -17,15 +17,22 @@ class IngredientsStocksController extends AppController {
 	}
 
 	function add() {
-		$this->layout = 'tianjia';
+		//$this->layout = 'tianjia';
+		$this->loadModel('IngredientsPrice');
+		//print_r($this->data);
+		
 		if (!empty($this->data)) {
 			$this->IngredientsStock->create();
-			if ($this->IngredientsStock->save($this->data)) {
+			$this->IngredientsPrice->create();
+			if($this->IngredientsPrice->saveAll($this->data)) {
+				echo "data saved";
+			}
+			/*if ($this->IngredientsStock->save($this->data)) {
 				$this->Session->setFlash(__('The ingredients stock has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The ingredients stock could not be saved. Please, try again.', true));
-			}
+			}*/
 		}
 		$ingredients = $this->IngredientsStock->Ingredient->find('list');
 		$this->set(compact('ingredients'));

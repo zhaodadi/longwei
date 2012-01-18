@@ -1,4 +1,6 @@
-<div id="page-heading"><h1>添加新产品</h1></div>
+
+
+<div id="page-heading"><h1>增加库存</h1></div>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 <tr>
 	<th rowspan="3" class="sized"><?php echo $this->Html->image('images/shared/side_shadowleft.jpg'); ?></th>
@@ -17,33 +19,28 @@
 	<tr valign="top">
 	<td><!-- start id-form -->
         
-    	<?php echo $this->Form->create('Product'); ?>
+    	<?php echo $this->Form->create('Ingredient'); ?>
 		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">  
 		<tr>
-			<th valign="top">产品名称</th>
-			<td><?php echo $this->Form->input('product_name', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<th valign="top">原料名称</th>
+			<td><?php echo $this->Form->input('ingredient_id', array( 'label' => false,'div' => false, 'class' => 'styledselect_form_1')); ?></td>
 			<td></td>
 		</tr>
-		<tr><th valign="top">原料组成</th>
-        	<td>
-            <table id="add_ingredient">
-            	<tr>
-                	<th class="table-header-repeat line-left minwidth-1"><a href="">原料名</a></th>
-                	<th class="table-header-repeat line-left minwidth-1"><a href="">数量</a></th>
-                	<th class="table-header-repeat line-left minwidth-1"><a href="">单位</a></th>
-                </tr>
-                <tr>
-                	<td><center><?php echo $this->Form->input('ingredient_id', array( 'label' => false,'div' => false, 'class' => '')); ?></center></td>
-                    <td><?php echo $this->Form->input('amount', array( 'label' => false,'div' => false, 'class' => '')); ?></td>
-					<td><?php echo $this->Form->input('unit', array( 'label' => false,'div' => false, 'class' => '')); ?></td>
-                </tr>
-            </table>
-            </td>
+		<tr>
+			<th valign="top">供货单位</th>
+			<td><?php echo $this->Form->input('IngredientsPrice.0.supplier', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<td></td>
 		</tr>
-        <tr>
-        	<td></td>
-            <td><input id="addNewLine" type="button" value="增加一行" /></td>
-        </tr>
+		<tr>
+			<th valign="top">单价</th>
+			<td><?php echo $this->Form->input('IngredientsPrice.0.price', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th valign="top">增加量</th>
+			<td><?php echo $this->Form->input('IngredientsStock.stock', array( 'label' => false,'div' => false, 'class' => 'inp-form')); ?></td>
+			<td></td>
+		</tr>
         
 	<tr>
 		<th>&nbsp;</th>

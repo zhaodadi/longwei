@@ -4,7 +4,7 @@ class ReceiptsController extends AppController {
 	var $name = 'Receipts';
 
 	function index() {
-		$this->Receipt->recursive = 0;
+		$this->Receipt->recursive = 2;
 		$this->set('receipts', $this->paginate());
 	}
 
@@ -17,6 +17,7 @@ class ReceiptsController extends AppController {
 	}
 
 	function add() {
+		//$this->layout = 'tianjia';
 		if (!empty($this->data)) {
 			$this->Receipt->create();
 			if ($this->Receipt->save($this->data)) {
@@ -26,7 +27,6 @@ class ReceiptsController extends AppController {
 				$this->Session->setFlash(__('The receipt could not be saved. Please, try again.', true));
 			}
 		}
-		$products = $this->Receipt->Product->find('list');
 		$ingredients = $this->Receipt->Ingredient->find('list');
 		$this->set(compact('products', 'ingredients'));
 	}

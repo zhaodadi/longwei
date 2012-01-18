@@ -23,11 +23,21 @@ class Product extends AppModel {
 			),
 		),
 	);
+	
+	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+	var $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		));
 
 	var $hasMany = array(
-		'Receipt' => array(
-			'className' => 'Receipt',
+		'Sale' => array(
+			'className' => 'Sale',
 			'foreignKey' => 'product_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -39,8 +49,8 @@ class Product extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Sale' => array(
-			'className' => 'Sale',
+		'Receipt' => array(
+			'className' => 'Receipt',
 			'foreignKey' => 'product_id',
 			'dependent' => false,
 			'conditions' => '',

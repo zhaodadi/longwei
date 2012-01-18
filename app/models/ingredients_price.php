@@ -48,7 +48,7 @@ class IngredientsPrice extends AppModel {
 	var $belongsTo = array(
 		'Ingredient' => array(
 			'className' => 'Ingredient',
-			'foreignKey' => 'ingredient_id',
+			'foreignKey' => 'id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

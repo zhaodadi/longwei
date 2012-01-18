@@ -1,6 +1,16 @@
 <?php
 class Ingredient extends AppModel {
 	var $name = 'Ingredient';
+	var $hasOne = array(
+			'IngredientsStock' => array(
+				'className' => 'IngredientsStock',
+			'foreignKey' => 'ingredient_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+	
 	var $validate = array(
 		'name' => array(
 			'notempty' => array(
@@ -36,21 +46,14 @@ class Ingredient extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
-		'Receipt' => array(
-			'className' => 'Receipt',
+		'IngredientsPrice' => array(
+				'className' => 'IngredientsPrice',
 			'foreignKey' => 'ingredient_id',
-			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+			'order' => ''
 		)
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
 		'User' => array(

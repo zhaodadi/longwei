@@ -29,7 +29,7 @@
 	?>
     
 <!--  jquery core -->
-<?php echo $this->Html->script(array('jquery/jquery-1.4.1.min','jquery/ui.core','jquery/ui.checkbox','jquery/jquery.bind')); ?>
+<?php echo $this->Html->script(array('jquery/jquery-1.4.1.min','jquery/ui.core','jquery/ui.checkbox','jquery/jquery.bind','jquery/jExpand','jquery/jquery.dataTables.min')); ?>
  
 <!--  checkbox styling script -->
 <script type="text/javascript">
@@ -40,6 +40,21 @@ $(function(){
 	$('#mainform input[type=checkbox]').checkBox('toggle');
 	return false;
 	});
+});
+</script>
+
+<!-- add new row to add table and expand table row -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".detail-table").jExpand();
+	
+	$("#addNewLine").click(function() {
+          $('#add_ingredient tbody>tr:last').clone(true).insertAfter('#add_ingredient tbody>tr:last');
+          return false;
+        });
+		
+	// jdatatables
+	$('#product-table').dataTable();
 });
 </script>  
 
@@ -198,29 +213,7 @@ $(document).pngFix( );
 	</div>
 	<!-- end logo -->
 	
-	<!--  start top-search -->
-	<div id="top-search">
-		<table border="0" cellpadding="0" cellspacing="0">
-		<tr>
-		<td><input type="text" value="Search" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
-		<td>
-		 
-		<select  class="styledselect">
-			<option value="">All</option>
-			<option value="">Products</option>
-			<option value="">Categories</option>
-			<option value="">Clients</option>
-			<option value="">News</option>
-		</select> 
-		 
-		</td>
-		<td>
-		<input type="image" src="images/shared/top_search_btn.gif"  />
-		</td>
-		</tr>
-		</table>
-	</div>
- 	<!--  end top-search -->
+	
  	<div class="clear"></div>
 
 </div>

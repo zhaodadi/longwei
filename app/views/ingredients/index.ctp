@@ -6,7 +6,7 @@
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('spec');?></th>
 			<th><?php echo $this->Paginator->sort('unit');?></th>
-			<th><?php echo $this->Paginator->sort('modifier');?></th>
+			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th><?php echo $this->Paginator->sort('extra');?></th>
@@ -25,7 +25,7 @@
 		<td><?php echo $ingredient['Ingredient']['name']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['spec']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['unit']; ?>&nbsp;</td>
-		<td><?php echo $ingredient['Ingredient']['modifier']; ?>&nbsp;</td>
+		<td><?php echo $ingredient['Ingredient']['user_id']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['created']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['modified']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['extra']; ?>&nbsp;</td>

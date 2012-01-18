@@ -18,6 +18,7 @@
 			<div id="table-content">
     
 <table id="product-table" width="100%" cellspacing="0" cellpadding="0" border="0">
+<thead>
 <tr>
 	<th class="table-header-check"><a id="toggle-all" ></a> </th>
 	<th class="table-header-repeat line-left minwidth-1"><a href="">编号</a></th>
@@ -29,7 +30,9 @@
 	<th class="table-header-repeat line-left"><a href="">添加用户</a></th>
 	<th class="table-header-options line-left"><a href="">操作</a></th>
 </tr>
+</thead>
 
+<tbody>
 <?php foreach ($ingredients as $ingredient): ?>
 <tr>
 	<td><input  type="checkbox"/></td>
@@ -46,6 +49,7 @@
 	</td>
 </tr>
 <?php endforeach; ?>
+</tbody>
  
 </table>
 		 </div>
@@ -63,28 +67,6 @@
 			</div>
 			<!-- end actions-box........... -->
          
-        
-<!--  start paging..................................................... -->
-			<table border="0" cellpadding="0" cellspacing="0" id="paging-table">
-			<tr>
-			<td>
-				<a href="" class="page-far-left"></a>
-				<a href="" class="page-left"></a>
-				<div id="page-info">Page <strong>1</strong> / 15</div>
-				<a href="" class="page-right"></a>
-				<a href="" class="page-far-right"></a>
-			</td>
-			<td>
-			<select  class="styledselect_pages">
-				<option value="">Number of rows</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-			</select>
-			</td>
-			</tr>
-			</table>
-			<!--  end paging................ -->
 			
 			<div class="clear"></div>
 		</div>

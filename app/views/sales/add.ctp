@@ -48,7 +48,7 @@
 		</tr>
 		<tr>
 			<th valign="top">要货日期</th>
-			<td><?php echo $this->Form->input('demand_date', array( 'label' => false,'div' => false)); ?></td>
+			<td><?php echo $this->Form->input('demand_date', array( 'label' => false,'div' => false,'monthNames' => false,'dateFormat' => 'YMD')); ?></td>
 			<td><a href=""  id="date-pick"><img src="images/forms/icon_calendar.jpg"   alt="" /></a></td>
 		</tr>
 		

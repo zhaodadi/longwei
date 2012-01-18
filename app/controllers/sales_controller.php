@@ -4,6 +4,7 @@ class SalesController extends AppController {
 	var $name = 'Sales';
 
 	function index() {
+		$this->redirect(array('action' => 'chakan'));
 		$this->Sale->recursive = 0;
 		$this->set('sales', $this->paginate());
 	}
@@ -17,15 +18,37 @@ class SalesController extends AppController {
 	}
 
 	function add() {
-		$this->layout = 'tianjia';
+		//$this->layout = 'tianjia';
+		//load receipt model and calculate ingredients stuff.
+		$this->loadModel('Receipt');
+		$receipts = $this->Receipt->findAllByProductId(4);
+		foreach($receipts as $receipt):  
+			$ingredient_id = $receipt['Receipt']['ingredient_id'];
+			$ingredient_amount = $receipt['Receipt']['amount'];
+		    $ingredient_stocks = $this->Receipt->Ingredient->IngredientsStock->findAllByIngredientId($ingredient_id);
+			//print_r($ingredient_stocks);
+			//$newConsume = $ingredient_stocks[0]['IngredientsStock']['consume'] + $ingredient_amount * $this->data['Sale']['amount'];// new consumption
+			//$newStock = $ingredient_stocks[0]['IngredientsStock']['stock'] - $ingredient_amount * $this->data['Sale']['amount'];
+			$newConsume = $ingredient_stocks[0]['IngredientsStock']['consume'] + $ingredient_amount * 100;// new consumption
+			$newStock = $ingredient_stocks[0]['IngredientsStock']['stock'] - $ingredient_amount * 100;
+			//$newDifference = $newStock - $newConsume; 
+			echo  $newConsume." ".$newStock;
+			//$this->Receipt->Ingredient->IngredientsStock->saveField('stock', $newStock);
+			//$this->Receipt->Ingredient->IngredientsStock->saveField('consume', $newConsume);
+			//$this->Receipt->Ingredient->IngredientsStock->saveField('difference', $newDifference);
+
+			echo "\nneed ingredient ".$ingredient_id."-- ".$ingredient_amount." tons   \n";
+		endforeach;
 		if (!empty($this->data)) {
 			$this->Sale->create();
-			if ($this->Sale->save($this->data)) {
+			print_r($this->data);
+			echo "产品ID：".$this->data['Sale']['product_id']."; 数量:".$this->data['Sale']['amount'];
+			/*if ($this->Sale->save($this->data)) {
 				$this->Session->setFlash(__('The sale has been saved', true));
 				$this->redirect(array('action' => 'chakan'));
 			} else {
 				$this->Session->setFlash(__('The sale could not be saved. Please, try again.', true));
-			}
+			}*/
 		}
 		$products = $this->Sale->Product->find('list');
 		$users = $this->Sale->User->find('list');

@@ -1,4 +1,4 @@
-<div id="page-heading"><h1>现存订单</h1></div>
+<div id="page-heading"><h1>现存产品</h1></div>
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 <tr>
 	<th rowspan="3" class="sized"><?php echo $this->Html->image('images/shared/side_shadowleft.jpg'); ?></th>
@@ -17,43 +17,42 @@
 			<!--  start table-content  -->
 			<div id="table-content">
     
-<table id="product-table" width="100%" cellspacing="0" cellpadding="0" border="0">
-<thead>
+<table id="product-table" class="detail-table" width="100%" cellspacing="0" cellpadding="0" border="0">
+
 <tr>
 	<th class="table-header-check"><a id="toggle-all" ></a> </th>
-	<th class="table-header-repeat line-left minwidth-1">编号</th>
-	<th class="table-header-repeat line-left">产品名称</th>
-	<th class="table-header-repeat line-left minwidth-1">数量</th>
-	<th class="table-header-repeat line-left minwidth-1">单位</th>
-	<th class="table-header-repeat line-left">要货地</th>
-	<th class="table-header-repeat line-left">要货日期</th>
-	<th class="table-header-repeat line-left">添加日期</th>
-	<th class="table-header-repeat line-left">修改日期</th>
-	<th class="table-header-repeat line-left">业务员</th>
-	<th class="table-header-repeat minwidth-1 line-left">操作</th>
+	<th class="table-header-repeat line-left minwidth-1"><a href="">编号</a></th>
+	<th class="table-header-repeat line-left minwidth-1"><a href="">产品名称</a></th>
+	<th class="table-header-repeat line-left"><a href="">添加日期</a></th>
+	<th class="table-header-repeat line-left"><a href="">修改日期</a></th>
+	<th class="table-header-repeat line-left"><a href="">修改人</a></th>
+	<th class="table-header-options line-left"><a href="">操作</a></th>
 </tr>
-</thead>
 
-<tbody>
-<?php foreach ($orders as $order): ?>
+
+<?php  foreach ($products as $product): ?>
 <tr>
 	<td><input  type="checkbox"/></td>
-	<td><?php echo $order['Sale']['id']; ?></td>
-	<td><?php echo $order['Product']['name']; ?></td>
-	<td><?php echo $order['Sale']['amount']; ?></td>
-	<td><?php echo $order['Sale']['unit']; ?></td>
-	<td><?php echo $order['Sale']['demand_location']; ?></td>
-	<td><?php echo $order['Sale']['demand_date']; ?></td>
-	<td><?php echo date("Y-m-d H:i", strtotime($order['Sale']['created'])); ?></td>
-	<td><?php echo date("Y-m-d H:i", strtotime($order['Sale']['modified'])); ?></td>
-	<td><?php echo $order['User']['name']; ?></td>
+	<td><?php echo $product['Product']['id']; ?></td>
+	<td><?php echo $product['Product']['name']; ?></td>
+	<td><?php echo date("Y-m-d H:i", strtotime($product['Product']['created'])); ?></td>
+	<td><?php echo date("Y-m-d H:i", strtotime($product['Product']['modified'])); ?></td>
+	<td><?php echo $product['User']['name']; ?></td>
 	<td class="options-width">
 		<a href="" title="编辑" class="icon-1 info-tooltip"></a>
 		<a href="" title="删除" class="icon-2 info-tooltip"></a>
 	</td>
 </tr>
+<tr> <td colspan="4">产品组成:
+	 <?php
+	 foreach($receipts as $receipt):
+	 	if($receipt['Receipt']['product_id'] == $product['Product']['id']) {
+			echo $receipt['Ingredient']['name']."<span>     </span>";
+		}
+	 endforeach; ?>
+     </td></tr>
 <?php endforeach; ?>
-</tbody>
+ 
 </table>
 		 </div>
          <!-- end content table -->
@@ -69,6 +68,8 @@
 				<div class="clear"></div>
 			</div>
 			<!-- end actions-box........... -->
+         
+        
 
 			
 			<div class="clear"></div>
