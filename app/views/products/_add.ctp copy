@@ -33,13 +33,13 @@
                 	<th class="table-header-repeat line-left minwidth-1"><a href="">单位</a></th>
                 </tr>
                 <tr>
-                	<td><center><?php echo $this->Form->input('Receipt.ingredient_id', array( 'name' => 'data[Receipt][ingredient_id][]','label' => false,'div' => false, 'class' => '')); ?></center></td>
-                    <td><?php echo $this->Form->input('Receipt.amount', array( 'name' => 'data[Receipt][amount][]', 'label' => false,'div' => false, 'class' => '')); ?></td>
+                	<td><center><?php echo $this->Form->input('Receipt.0.ingredient_id', array( 'label' => false,'div' => false, 'class' => '')); ?></center></td>
+                    <td><?php echo $this->Form->input('Receipt.0.amount', array( 'label' => false,'div' => false, 'class' => '')); ?></td>
 					<td><?php echo "吨"; ?></td>
                 </tr>
                 <tr>
-                	<td><center><?php echo $this->Form->input('Receipt.ingredient_id', array( 'name' => 'data[Receipt][ingredient_id][]', 'label' => false,'div' => false, 'class' => '')); ?></center></td>
-                    <td><?php echo $this->Form->input('Receipt.amount', array('name' => 'data[Receipt][amount][]', 'label' => false,'div' => false, 'class' => '')); ?></td>
+                	<td><center><?php echo $this->Form->input('Receipt.1.ingredient_id', array( 'label' => false,'div' => false, 'class' => '')); ?></center></td>
+                    <td><?php echo $this->Form->input('Receipt.1.amount', array( 'label' => false,'div' => false, 'class' => '')); ?></td>
 					<td><?php echo "吨"; ?></td>
                 </tr>
             </table>

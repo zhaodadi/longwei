@@ -17,33 +17,17 @@ class ProductsController extends AppController {
 	}
 
 	function add() {
-		$this->layout = 'tianjia';
-		
-		if (!empty($this->data)) {
+		//$this->layout = 'tianjia';
+		print_r($this->data);
+		/*if (!empty($this->data)) {
 			$this->Product->create();
-			if ($this->Product->save($this->data)) {
-				//get newly created product id
-				$newProduct_id = $this->Product->id;
-				
-				if(count($this->data['Receipt']['ingredient_id']) == count($this->data['Receipt']['amount'])) {
-					// go through each array and save as receipt
-					for($i=0; $i<count($this->data['Receipt']['ingredient_id']); $i++) {
-						$this->Product->Receipt->create();
-						$newReceipt = array('Receipt' => array('product_id' => $newProduct_id, 
-															   'ingredient_id' => $this->data['Receipt']['ingredient_id'][$i],
-															   'amount' => $this->data['Receipt']['amount'][$i]
-															   ));
-						$this->Product->Receipt->save($newReceipt);
-					}
-					$this->Session->setFlash(__('The product has been saved', true));
-					$this->redirect(array('action' => 'chakan'));
-				} else {
-					//something went wrong with the number of inputs
-				}
+			if ($this->Product->saveAll($this->data)) {
+				$this->Session->setFlash(__('The product has been saved', true));
+				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.', true));
 			}
-		}
+		}*/
 		$ingredients = $this->Product->Receipt->Ingredient->find('list');
 		$this->set(compact('products', 'ingredients'));
 	}
