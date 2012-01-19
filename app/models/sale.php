@@ -6,8 +6,18 @@ class Sale extends AppModel {
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'allowEmpty' => false,
+				'required' => true,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'amount' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => '此处请填数字',
+				'allowEmpty' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -15,9 +25,9 @@ class Sale extends AppModel {
 		'demand_location' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
+				'message' => '此项必填',
+				'allowEmpty' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

@@ -69,6 +69,20 @@ class IngredientsController extends AppController {
 	//---
 	function pinzhong($userID = null) {
 		$this->layout = 'tianjia';
+		if (!empty($this->data)) {
+			$this->Ingredient->create();
+			if ($this->Ingredient->save($this->data)) {
+				$newId = $this->Ingredient->id;
+				$this->Ingredient->IngredientsStock->create();
+				$this->Ingredient->IngredientsStock->save(array('IngredientsStock' => 
+																	array ('ingredient_id' => $newId)));
+
+				$this->Session->setFlash(__('The ingredient has been saved', true));
+				$this->redirect(array('action' => 'pinzhong'));
+			} else {
+				$this->Session->setFlash(__('The ingredient could not be saved. Please, try again.', true));
+			}
+		}
 		$this->set('ingredients',$this->Ingredient->find('all'));
 	}
 	

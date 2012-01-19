@@ -102,7 +102,7 @@
 	<tr valign="top">
 	<td><!-- start id-form -->
         
-    	<?php echo $this->Form->create('Ingredient', array('action' => 'add')); ?>
+    	<?php echo $this->Form->create('Ingredient', array('action' => 'pinzhong')); ?>
 		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 		<tr>
 			<th valign="top">原料名称</th>

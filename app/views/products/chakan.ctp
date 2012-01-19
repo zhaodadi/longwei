@@ -21,12 +21,12 @@
 
 <tr>
 	<th class="table-header-check"><a id="toggle-all" ></a> </th>
-	<th class="table-header-repeat line-left minwidth-1"><a href="">编号</a></th>
-	<th class="table-header-repeat line-left minwidth-1"><a href="">产品名称</a></th>
-	<th class="table-header-repeat line-left"><a href="">添加日期</a></th>
-	<th class="table-header-repeat line-left"><a href="">修改日期</a></th>
-	<th class="table-header-repeat line-left"><a href="">修改人</a></th>
-	<th class="table-header-options line-left"><a href="">操作</a></th>
+	<th class="table-header-repeat line-left minwidth-1">编号</th>
+	<th class="table-header-repeat line-left minwidth-1">产品名称</th>
+	<th class="table-header-repeat line-left">添加日期</th>
+	<th class="table-header-repeat line-left">修改日期</th>
+	<th class="table-header-repeat line-left">修改人</th>
+	<th class="table-header-options line-left">操作</th>
 </tr>
 
 

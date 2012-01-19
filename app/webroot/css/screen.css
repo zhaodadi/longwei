@@ -2103,3 +2103,7 @@ div.box {
     padding: 6px 0px 0 10px;
     width: 155px;
 }
+
+.error-message {
+    color:#F00;
+}
