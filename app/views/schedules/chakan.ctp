@@ -21,16 +21,15 @@
 <thead>
 <tr>
 	<th class="table-header-check"><a id="toggle-all" ></a> </th>
-	<th class="table-header-repeat line-left minwidth-1">编号</th>
+	<th class="table-header-repeat line-left minwidth-1">日期</th>
+	<th class="table-header-repeat line-left">发货状态</th>
 	<th class="table-header-repeat line-left">产品名称</th>
 	<th class="table-header-repeat line-left minwidth-1">数量</th>
-	<th class="table-header-repeat line-left minwidth-1">单位</th>
 	<th class="table-header-repeat line-left">要货地</th>
-	<th class="table-header-repeat line-left">发货状态</th>
 	<th class="table-header-repeat line-left">要货日期</th>
 	<th class="table-header-repeat line-left">添加日期</th>
 	<th class="table-header-repeat line-left">修改日期</th>
-	<th class="table-header-repeat line-left">业务员</th>
+	<th class="table-header-repeat line-left">操作员</th>
 	<th class="table-header-repeat minwidth-1 line-left">操作</th>
 </tr>
 </thead>
@@ -39,7 +38,6 @@
 <?php foreach ($orders as $order): ?>
 <tr>
 	<td><input  type="checkbox"/></td>
-	<td><?php echo $order['Sale']['id']; ?></td>
 	<td><?php echo $order['Product']['name']; ?></td>
 	<td><?php echo $order['Sale']['amount']; ?></td>
 	<td><?php echo $order['Sale']['unit']; ?></td>

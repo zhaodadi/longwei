@@ -45,6 +45,9 @@
 				                    		"zengjiakucun" => array( 'text'=>'增加库存', 'controller' => 'ingredients', 'action' => 'zengjiakucun')),
 	                 "products" => array("products" => array( 'text'=>'技术', 'controller' => 'products', 'action' => 'chakan'), 
 				                    		"chakan" => array( 'text'=>'产品配方', 'controller' => 'products', 'action' => 'chakan'),
+				                    		"add" => array( 'text'=>'添加新产品', 'controller' => 'products', 'action' => 'add')),
+	                 "schedules" => array("schedules" => array( 'text'=>'发运', 'controller' => 'schedules', 'action' => 'chakan'), 
+				                    		"chakan" => array( 'text'=>'产品配方', 'controller' => 'products', 'action' => 'chakan'),
 				                    		"add" => array( 'text'=>'添加新产品', 'controller' => 'products', 'action' => 'add'))
 					);
 					
