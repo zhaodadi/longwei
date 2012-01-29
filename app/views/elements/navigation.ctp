@@ -46,13 +46,16 @@
 	                 "products" => array("products" => array( 'text'=>'技术', 'controller' => 'products', 'action' => 'chakan'), 
 				                    		"chakan" => array( 'text'=>'产品配方', 'controller' => 'products', 'action' => 'chakan'),
 				                    		"add" => array( 'text'=>'添加新产品', 'controller' => 'products', 'action' => 'add')),
-	                 "schedules" => array("schedules" => array( 'text'=>'发运', 'controller' => 'schedules', 'action' => 'chakan'), 
-				                    		"chakan" => array( 'text'=>'产品配方', 'controller' => 'products', 'action' => 'chakan'),
-				                    		"add" => array( 'text'=>'添加新产品', 'controller' => 'products', 'action' => 'add'))
+	                 "sales_schedules" => array("sales_schedules" => array( 'text'=>'发运', 'controller' => 'sales_schedules', 'action' => 'chakan'), 
+				                    		"chakan" => array( 'text'=>'发运时间表', 'controller' => 'sales_schedules', 'action' => 'chakan'),
+				                    		"add" => array( 'text'=>'设置', 'controller' => 'sales_schedules', 'action' => 'add'))
 					);
 					
 	  $thenav = "";
-	  $nav_1 = array_shift(explode('_', $this->params['controller']));
+	  //$nav_1 = array_shift(explode('_', $this->params['controller']));
+	  //echo "string pos is: ".strrpos($this->params['controller'], '_', -11);
+	 // $nav_1 = substr($this->params['controller'], 0, 2);
+	  $nav_1 = $this->params['controller'];
 	  $nav_2 = $this->params['action'];
 	  
 	  foreach($links as $section => $arr) {

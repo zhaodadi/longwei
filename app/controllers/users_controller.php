@@ -62,4 +62,34 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function login() {
+    	//Auth Magic
+		if ($this->Session->read('Auth.User')) {
+			//$this->Session->setFlash('You are logged in!');
+			$this->Session->setFlash($this->Session->read('Auth.User'));
+			$this->redirect(array('controller' => 'groups', 'action' => 'index'), null, false);
+		}
+    }
+	
+    function logout() {
+    	//Leave empty for now.
+		$this->Session->setFlash('Good-Bye');
+    	$this->redirect($this->Auth->logout());
+    }
+	
+	function beforeFilter() {
+    	parent::beforeFilter();
+    	$this->Auth->allow(array('*'));
+    }
+	
+//--------------------------------to delete ------------------------------
+    function initDB() {
+    $group =& $this->User->Group;
+    //Allow admins to everything
+	$this->Acl->allow(array( 'model' => 'Group', 'foreign_key' => 1), 'controllers');
+    echo "all done";
+    exit;
+    }
+
 }
